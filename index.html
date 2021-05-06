@@ -38,7 +38,12 @@
           console.log("Error authenticating user:", error);
         });
       }
-
+      function setUserInfo(username){
+            var user = firebase.auth().currentUser;
+            user.updateProfile({
+              displayName: username
+            });
+      }
       firebase.auth().onAuthStateChanged(function(user) {
         // Once authenticated, instantiate Firechat with the logged in user
         if (user) {
@@ -62,5 +67,6 @@
       <button onclick="login();">Login with Google</button>
     </div>
     <a href="https://forms.sendpulse.com/47c24e3b99/">Subscribe to mailing list for updates</a>
+    Set Username: <input id="username"><button onclick="setUserInfo(username.value)">Save</button>
   </body>
 </html>
