@@ -1,6 +1,16 @@
 # Neka-GH
-<img src="https://img.shields.io/github/commit-activity/y/Neka126/neka126.github.io">
-![https://img.shields.io/github/commit-activity/m/Neka126/neka126.github.io]
-![https://img.shields.io/github/commit-activity/w/Neka126/neka126.github.io]
+[Status Page](https://cdpn.io/frostyanimations126/debug/WNpNPrq/)<br>
+<img src="https://img.shields.io/github/commit-activity/y/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/commit-activity/m/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/commit-activity/w/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/contributors/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/last-commit/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/languages/count/Neka126/neka126.github.io"><br>
+<img src="https://img.shields.io/github/languages/top/Neka126/neka126.github.io"><br>
+<img src=""><br>
+<img src=""><br>
+<img src=""><br>
+<img src=""><br>
+<img src=""><br>
 ## Links
-[Neka-GH Chat](chat)
+[Neka-GH Chat](Chat)
