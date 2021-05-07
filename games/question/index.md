@@ -1,5 +1,5 @@
-## Truth or Dare {#TOD}
-### Questions {#TOD-Q}
+## Truth or Dare
+### Questions
 1. What’s the last lie you told?
 
 2. What was the most embarrassing thing you’ve ever done on a date?
@@ -402,8 +402,6 @@ Related: 250 Questions to Ask a Guy
 
 200. Have you ever seriously injured another person?
 
-Related: 250 Never Have I Ever Questions
-
 201. When did you stop believing in Santa Claus?
 
 202. What’s one responsibility you wish you didn’t have?
@@ -443,11 +441,6 @@ Related: 250 Never Have I Ever Questions
 219. What’s the weirdest place you’ve ever given or gotten someone’s number?
 
 220. What’s the dumbest thing you’ve ever lied about?
-
-Parade Daily
-Celebrity interviews, recipes and health tips delivered to your inbox.
-
-Email Address
  
 221. Have you ever said, “I love you” and not really meant it? To whom?
 
@@ -509,7 +502,7 @@ Email Address
 
 250. If you were rescuing people from a burning building and you had to leave one person behind from this room, who would it be?
 
-### Truth or Dare Dares {#TOD-D}
+### Dares
 1. Let another player post a status on your social.
 
 2. Do freestyle rap for 1 minute about the other participants.
