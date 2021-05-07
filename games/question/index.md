@@ -1,4 +1,5 @@
-Truth or Dare Questions
+## Truth or Dare {#TOD}
+### Questions {#TOD-Q}
 1. What’s the last lie you told?
 
 2. What was the most embarrassing thing you’ve ever done on a date?
@@ -361,8 +362,6 @@ Related: 250 Questions to Ask a Guy
 
 180. When was the last time you were really angry? Why?
 
-Related: 250 Conversation Starters
-
 181. What’s your least favorite memory from college?
 
 182. What’s the grossest thing that you do alone?
@@ -460,8 +459,6 @@ Email Address
 
 225. Have you ever had a crush on a boss or teacher?
 
-Related: 101 Pick Up Lines
-
 226. What’s the worst present you’ve ever given someone else?
 
 227. What’s the weirdest thought you’ve had sitting on a toilet?
@@ -512,7 +509,7 @@ Related: 101 Pick Up Lines
 
 250. If you were rescuing people from a burning building and you had to leave one person behind from this room, who would it be?
 
-Good Dares for Truth or Dare
+### Truth or Dare Dares {#TOD-Q}
 1. Let another player post a status on your social.
 
 2. Do freestyle rap for 1 minute about the other participants.
