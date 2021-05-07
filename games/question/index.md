@@ -150,8 +150,6 @@
 
 75. How many photo editing apps do you have on your phone?
 
-Related: 250 Questions to Ask a Guy
-
 76. How many pairs of granny panties do you own?
 
 77. What are your favorite and least favorite of your body parts?
