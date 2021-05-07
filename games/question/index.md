@@ -509,7 +509,7 @@ Email Address
 
 250. If you were rescuing people from a burning building and you had to leave one person behind from this room, who would it be?
 
-### Truth or Dare Dares {#TOD-Q}
+### Truth or Dare Dares {#TOD-D}
 1. Let another player post a status on your social.
 
 2. Do freestyle rap for 1 minute about the other participants.
