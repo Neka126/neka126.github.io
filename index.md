@@ -13,4 +13,4 @@
 <img src=""><br>
 <img src=""><br>
 ## Links
-[Neka-GH Chat](Chat)
+[Neka-GH Chat](chat)
