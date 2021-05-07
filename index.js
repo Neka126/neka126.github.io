@@ -1,4 +1,4 @@
-wdtEmojiBundle.init('.wdt-emoji-popup');
+wdtEmojiBundle.init('.text');
 dtEmojiBundle.defaults.emojiSheets.apple = '/emoji/sheets/sheet_apple.png';
 wdtEmojiBundle.defaults.emojiSheets.google = '/emoji/sheets/sheet_google.png';
 wdtEmojiBundle.defaults.emojiSheets.twitter = '/emoji/sheets/sheet_twitter.png';
