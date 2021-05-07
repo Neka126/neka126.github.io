@@ -59,8 +59,6 @@ Truth or Dare Questions
 
 30. How do you really feel about the Twilight saga?
 
-RELATED: 101 Fun Facts
-
 31. Where do most of your embarrassing odors come from?
 
 32. Have you ever considered cheating on a partner?
@@ -100,8 +98,6 @@ RELATED: 101 Fun Facts
 49. Have you ever used a fake ID?
 
 50. Who’s your hall pass?
-
-RELATED: Would You Rather Questions
 
 51. Be honest: Do you have a favorite child?
 
@@ -205,8 +201,6 @@ Related: 250 Questions to Ask a Guy
 
 100. What’s your most absurd dealbreaker?
 
-RELATED: 101 Knock-Knock Jokes
-
 101. Who in this room would you list as your emergency contact?
 
 102. What’s something you would die if your mom found out about?
@@ -306,8 +300,6 @@ RELATED: 101 Knock-Knock Jokes
 149. Where’s one place you’re dying to visit?
 
 150. What word do you hate the most?
-
-RELATED: Hilarious Quotes
 
 151. What’s the most embarrassing thing you’ve ever posted on social media?
 
