@@ -110,11 +110,11 @@
         <hr>
         <a style="width:250px;"id="serverName"> </a>
         <hr>
-        <div id="userlist"class="scroll"></div>
+        <div id="userlist"class="scroll" style="height:500px"></div>
       </div>
       <div>
         <hr>
-        <div class="right column scroll" id="text">No Server Selected</div>
+        <div class="right column scroll" style="height:500px" id="text">No Server Selected</div>
         <textarea id="input" class="w3-gray"></textarea><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.value);refresh();">Send</button>
       </div>
     </div>
@@ -271,7 +271,7 @@ window.onclick = function(event) {
           userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+users[i].name+"</button>";
         };
       });
-      text.innerHTML = "This a beta, please go <a href='https://000612429.codepen.website/chat'>here</a> is you are having problems<br><br>Servers:<br>Blooket: -MYr6Tjj44SqwiETlE5q<br>";
+      text.innerHTML = "This a beta, please go <a href='https://000612429.codepen.website/chat'>here</a> is you are having problems<br><br>Servers:<br>Blooket: -MYr6Tjj44SqwiETlE5q<br>Kahoot: -MYr6UtcZt2Kh-AEmpwM<br>26: -MYr6Vv0eGSI4M7tbYPh<br><br>";
      
     }
     function resetServer(id){
@@ -322,8 +322,6 @@ window.onclick = function(event) {
     if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server"))};
     setInterval(function(){
       if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
-      text.style.height = "500px";text.height = "500px";
-      userlist.style.height = "500px";userlist.height = "500px";
     },200);
   </script>
   <div>
