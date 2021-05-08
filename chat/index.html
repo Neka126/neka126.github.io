@@ -1,97 +1,334 @@
-<!doctype html>
-<html>
-  <head>
-    <script src="https://kit.fontawesome.com/b7efbdf30a.js" crossorigin="anonymous"></script>
-    <meta charset='utf-8' />
-
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-
-    <!-- Firechat -->
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
-    <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
-        authDomain: "dev-voice-226818.firebaseapp.com",
-        databaseURL: "https://dev-voice-226818.firebaseio.com",
-        projectId: "dev-voice-226818",
-        storageBucket: "dev-voice-226818.appspot.com",
-        messagingSenderId: "758189606771",
-        appId: "1:758189606771:web:8b255f5a5677c7b4dfe706",
-        measurementId: "G-YPTDPDMTB0"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  </head>
-  <body> 
-    <div class="w3-bar w3-border w3-light-grey">
-      <a href="/" class="w3-bar-item w3-button">Home</a>
-      <a href="/chat" class="w3-bar-item w3-button w3-blue">Chat</a>
-      <a href="/games" class="w3-bar-item w3-button">Games</a>
-      <a href="/search" class="w3-bar-item w3-button w3-green w3-right">Neka-GH</a>
-      <div class="w3-dropdown-click w3-right">
-        <button class="w3-button" onclick="myFunction()">
-          Account
-        </button>
-        <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a href="/settings" class="w3-bar-item w3-button">Settings</a>
-          <a href="/settings/linked.html" class="w3-bar-item w3-button">Linked Accounts</a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi</title>
+  <base target="_blank">
+  <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/dev-voice-226818.appspot.com/o/Pictures%2FK526-363.png?alt=media&token=9e0587ee-f3cc-47b5-9dd5-9efc89190d4a">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/b7efbdf30a.js" crossorigin="anonymous"async></script>
+  <script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="aac8e5dfef05c2bf1bd1ce7b57893207d0d672d1c28382d4550971f33a0d1ba5"></script>
+    <!-- Hotjar Tracking Code for 000612429.codepen.website -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:2381896,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js"></script>
+  <script>
+    var neka=neka||{}
+    var firebaseConfig = {
+      apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
+      authDomain: "dev-voice-226818.firebaseapp.com",
+      databaseURL: "https://dev-voice-226818.firebaseio.com",
+      projectId: "dev-voice-226818",
+      storageBucket: "dev-voice-226818.appspot.com",
+      messagingSenderId: "758189606771",
+      appId: "1:758189606771:web:8b255f5a5677c7b4dfe706",
+      measurementId: "G-YPTDPDMTB0"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+   <!-- CodeMirror -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+  <link rel="stylesheet" href="https://codemirror.net/theme/3024-night.css" />
+  <!-- Firepad+Firechat -->
+  <link rel="stylesheet" href="https://raw.githack.com/Neka126/Combo/main/FireTools/index.css" />
+  <script src="https://raw.githack.com/Neka126/Combo/main/FireTools/index.js"></script>
+  <script>
+    
+    var defaultDatabase = firebase.database();
+    var NekaConfig = {jQuery:true,firebase:true,Noty:false};
+    function good(user){
+     user = firebase.auth().currentUser;
+     neka.Kiwi.user.set(user.uid,user.displayName);
+    }
+    firebase.auth().onAuthStateChanged(user2 => {
+        if (user2) {good(user2);}else{window.location.replace("https://000612429.codepen.website/auth.html")}
+      });
+      
+  </script>
+  <script src="/NekaKiwi.js"></script>
+  <!--  Styles  -->
+  
+  <link rel="stylesheet" href="/index.processed.css">
+</head>
+<body onload="list.style.height=window.innerheight;text.style.height=window.innerheight;" style="overflow:hidden">
+  <div class="w3-bar w3-border w3-light-grey">
+    <a href="/" class="w3-bar-item w3-button">Home</a>
+    <a href="/chat" class="w3-bar-item w3-button w3-blue">Chat</a>
+    <a href="/games" class="w3-bar-item w3-button">Games</a>
+    <a href="/search" class="w3-bar-item w3-button w3-green w3-right">Neka-GH</a>
+    <div class="w3-dropdown-click w3-right">
+      <button class="w3-button" onclick="myFunction()">
+        Account
+      </button>
+      <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="/settings" class="w3-bar-item w3-button">Settings</a>
+        <a href="/settings/linked.html" class="w3-bar-item w3-button">Linked Accounts</a>
       </div>
     </div>
-    <script>
-      function myFunction() {
-        var x = document.getElementById("demo");
-        if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-        } else { 
-          x.className = x.className.replace(" w3-show", "");
-        }
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("demo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
       }
-      function login() {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).catch(function(error) {
-          console.log("Error authenticating user:", error);
-        });
-      }
-      function setUserInfo(username){
-            var user = firebase.auth().currentUser;
-            user.updateProfile({
-              displayName: username
-            });
-      }
-      firebase.auth().onAuthStateChanged(function(user) {
-        // Once authenticated, instantiate Firechat with the logged in user
-        if (user) {
-          initChat(user);
-        }
-      });
-
-      function initChat(user) {
-        // Get a Firebase Database ref
-        var chatRef = firebase.database().ref("chat");
-
-        // Create a Firechat instance
-        var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
-
-        // Set the Firechat user
-        chat.setUser(user.uid, user.displayName);
-      }
-    </script>
-
-    <div id="firechat-wrapper">
-      <button onclick="login();">Login with Google</button>
+    }
+  </script>
+  <script src="https://dev-voice-226818.web.app/NekaScript.js"></script>
+  <script src="NekaKiwi.js"></script>
+  <div id="NekaKiwi" class="row">
+    <div id="list" style="width:70px;max-height:100%;" class="left column scroll">
+      <button class="server"style="background-image:url('https://firebasestorage.googleapis.com/v0/b/dev-voice-226818.appspot.com/o/Pictures%2FK526-363.png?alt=media&token=9e0587ee-f3cc-47b5-9dd5-9efc89190d4a')"onclick="home()"></button>
+      <button class="server"style="background-image:url('https://drdds.com/wp-content/uploads/2019/03/3-Gears-Icon.png')"onclick="settings()"></button>
+      <button class="server"style="background-image:url('https://th.bing.com/th/id/Re2af743646db93e6b1d098d278df108d?rik=r5hqry0M47BbhQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_423101.png&ehk=asi9AThWQjqmzHazclC65pjQ2EHGv7adDLAnv6SilLM%3d&risl=&pid=ImgRaw')"onclick="document.getElementById('id01').style.display='block'"></button>
+      <button class="server"style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/9/9a/Refresh_font_awesome.svg')"onclick="refresh()"></button>
+      <button class="server"style="background-image:url('https://static.vecteezy.com/system/resources/previews/000/583/040/original/button-plus-icon-vector.jpg')"onclick="joinServer(prompt('ID'))"></button>
+      <button id="sc"class="server"style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Green_Arrow_Down.svg/1024px-Green_Arrow_Down.svg.png')"onclick="chatWindow = document.getElementById('text'); var xH = chatWindow.scrollHeight; chatWindow.scrollTo(0, xH);"></button>
+      <hr>
+      <button class="server"style="background-image:url('https://firebasestorage.googleapis.com/v0/b/dev-voice-226818.appspot.com/o/Pictures%2FT146.png?alt=media&token=45c5efce-1a46-4544-a08f-eb18ab5d9044')" onclick="server('-MYr6SeLHrFYeps9HJis')" title="Main Server"></button>
+      
+    
     </div>
-    <a target="_blank"href="https://forms.sendpulse.com/47c24e3b99/">Subscribe to mailing list for updates</a><br>
-    Set Username: <input id="username"><button onclick="setUserInfo(username.value)">Save</button>
-  </body>
+    <div id="serverView" class="right column">
+      <div class="left column">
+        <hr>
+        <a style="width:250px;"id="serverName"> </a>
+        <hr>
+        <div id="userlist"class="scroll"></div>
+      </div>
+      <div>
+        <hr>
+        <div class="right column scroll" id="text">No Server Selected</div>
+        <input id="input"><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.value);refresh();">Send</button>
+      </div>
+    </div>
+  </div><br><button sp-show-form='187974'>Subscribe to email notifications</button>
+  <select onclick="body.style['background-color'] = this.value">
+    <option value="black">Black</option>
+    <option value="white">White</option>
+    <option value="#33cc33">NekaKiwi</option>
+  </select>
+  <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #000000;
+  padding-top: 50px;
+}
+iframe {
+  width: 90%;
+  height: 600px;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+</style>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <div id='KiwiCode'>
+    <iframe src="https://dev-voice-226818.web.app/zWeb/zDoc/Editor.html"frameborder="0"></iframe>
+  </div>
+</div>
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+  
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+  <script>
+    if(localStorage.serverlist!="undefined"&&localStorage.serverlist!=undefined&&localStorage.serverlist!="null"){list.innerHTML=localStorage.serverlist};
+    function addServer(image,id){
+      neka.Kiwi.room.enter(id);
+      if(image===null||image===undefined){image="http://cdn.onlinewebfonts.com/svg/img_28937.png"}
+      var nB=`<button id="${id}"class="server"style="background-image:url('${image}')"onclick="server('${id}')"></button>`;
+      list.innerHTML = list.innerHTML+nB;
+      localStorage.serverlist = list.innerHTML;
+    };
+    neka.Kiwi.users = {};
+    function joinServer(id){
+      if(id===false){return;}
+        var serverRef=firebase.database().ref("chat/room-metadata/"+id);
+        serverRef.once('value', (snapshot) => {
+        const data = snapshot.val();
+        addServer(data.image||null,id);
+        });
+    };
+    function server(id){
+      good();
+      neka.Kiwi.room.current = id;
+      neka.Kiwi.room.enter(neka.Kiwi.room.current);
+      neka.Kiwi.room.info(neka.Kiwi.room.current,function(n){if(n.veri===true){var ve=" <span class=\"veri\"><i title=\"Verified By Neka\"class=\"fas fa-check-circle\"></i></span>"}else{var ve=""};serverName.innerHTML=`<details><summary>${n.name}${ve}</summary><button onclick="document.getElementById('${id}').remove();home();"class="menuButton"><i class="fas fa-times"></i></button><button onclick=""class="menuButton" id="usercount"></button><br>${n.id}</details>`});
+      chatWindow = document.getElementById('text'); 
+      var xH = chatWindow.scrollHeight; 
+      chatWindow.scrollTo(0, xH);
+      refresh(id);
+    }
+    function home(){
+      text.innerHTML="";
+      serverName.innerHTML="<details><summary>Home</summary>No ID</details>"
+      neka.Kiwi.user.list("",null,function(info){
+        var users=Object.values(info);
+        userlist.innerHTML="";
+        for(var i=0;i<users.length;i++){
+          userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+users[i].name+"</button>";
+        };
+      });
+      text.innerHTML = "This a beta, please go <a href='https://000612429.codepen.website/chat'>here</a> is you are having problems<br><br>Servers:<br>Blooket: -MYr6Tjj44SqwiETlE5q<br>";
+     
+    }
+    function resetServer(id){
+      document.getElementById(id).remove();
+      server(id);
+    }
+    function settings(){
+      text.innerHTML="";
+      serverName.innerHTML="<details><summary>Setting</summary>No ID</details>"
+      neka.Kiwi.user.list("",null,function(info){
+        var users=Object.values(info);
+        userlist.innerHTML="";
+        for(var i=0;i<users.length;i++){
+          userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+users[i].name+"</button>";
+        };
+      });
+      text.innerHTML = "";
+      text.innerHTML += "Ur UID: "+firebase.auth().currentUser.uid;
+      text.innerHTML += "<br>";
+      text.innerHTML += "Ur Username: "+firebase.auth().currentUser.displayName;
+      text.innerHTML += "<br>";
+      text.innerHTML += "<button onclick='localStorage.serverlist=undefined'>Clear Server List</button>";
+     
+    }
+    function refresh(id){
+      id = id||neka.Kiwi.room.current;
+      neka.Kiwi.room.users(id,100,function(info){
+        var users=Object.values(info);
+        userlist.innerHTML="";
+        for(var i=0;i<users.length;i++){
+          usercount.innerHTML=users.length
+          userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+"<details><summary>"+users[i].name+'</summary>'+users[i].id+'</details><a target="_top"href="#" onclick="neka.Kiwi.user.invite('+neka.Kiwi.room.current+users[i].id+')"><i class="fas fa-plus"></i></a><a onclick="alert(`DMs are a WIP`)"href="#"target="_top"><i class="fas fa-comments"></i></a>'+"</button>";
+        };
+      });
+      firebase.database().ref("chat").get().then((snapshot) => {
+        var data = Object.values(snapshot.val()["room-messages"][neka.Kiwi.room.current]);
+        var users = snapshot.val().users;
+        text.innerHTML="";
+        for(var i=0;i<data.length;i++){
+          text.innerHTML=text.innerHTML+"<button title='"+data[i].userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data[i].userId].image||"")+"'>"+data[i].name+"</b><br>"+data[i].message+"</button><br>";
+        };
+      chatWindow = document.getElementById('text'); 
+      var xH = chatWindow.scrollHeight; 
+      chatWindow.scrollTo(0, xH);
+      });
+    }
+    
+    if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server"))};
+    setInterval(function(){
+      if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
+    },200);
+  </script>
+  <div>
+    <iframe data-aa="1621474" src="//ad.a-ads.com/1621474?size=250x250&background_color=000000" scrolling="no" style="width:250px; height:250px; border:0px; padding:0; overflow:hidden" allowtransparency="true"></iframe>
+    <iframe data-aa="1622199" src="//ad.a-ads.com/1622199?size=250x250&background_color=000000" scrolling="no" style="width:250px; height:250px; border:0px; padding:0; overflow:hidden" allowtransparency="true"></iframe>
+    
+    
+  </div>
+  
+</body>
 </html>
