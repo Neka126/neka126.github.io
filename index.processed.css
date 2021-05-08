@@ -1,0 +1,89 @@
+button.server {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+span.veri {
+  color: Dodgerblue;
+}
+
+img.userImage {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+button.menuButton {
+  width: 25%;
+}
+
+button.server:hover {
+  border-radius: 20%;
+}
+
+button.active {
+  border-radius: 20%;
+}
+
+.firepad {
+  width: 700px;
+  height: 450px;
+  background-color: #f62;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+button.message {
+  width: 100%;
+  text-align: left;
+}
+
+.column {
+  float: left;
+}
+
+.right {
+  height: 100%;
+  width: 70%;
+}
+
+.text {
+  height: 600px;
+  width: 80%;
+  overflow-y: scroll;
+  border-color: white;
+  border-width: 5px;
+}
+
+.left {
+  width: 250px;
+}
+
+/* Clear floats after the columns */
+div.scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 600px;
+  resize: vertical;
+}
+
+i.ns {
+  font-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+i.n-apple-nrm {
+  background-image: url("https://img.icons8.com/ios/64/000000/mac-os.png");
+}
+
+i.n-apple-gra {
+  background-image: url("https://img.icons8.com/nolan/64/mac-os.png");
+}
