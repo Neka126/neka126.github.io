@@ -11,7 +11,32 @@
 	<base target="_blank">
 </head>
 <body style=color:white">
-
+  <div class="w3-bar w3-border w3-light-grey">
+    <a href="/" class="w3-bar-item w3-button" target="_top">Home</a>
+    <a href="/chat" class="w3-bar-item w3-button" target="_top">Chat</a>
+    <a href="/games" class="w3-bar-item w3-button w3-pink" target="_top">Games</a>
+    <a href="/search" class="w3-bar-item w3-button w3-green w3-right" target="_top">Neka-GH</a>
+    <div class="w3-dropdown-click w3-right">
+      <button class="w3-button" onclick="myFunction()">
+        Account
+      </button>
+      <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="/auth" class="w3-bar-item w3-button" target="_top">Auth</a>
+        <a href="/settings" class="w3-bar-item w3-button" target="_top">Settings</a>
+        <a href="/settings/linked.html" class="w3-bar-item w3-button" target="_top">Linked Accounts</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("demo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
 	<div class="container" id="gb" style='background-position-x:center'>
 		<div class="w3-container">
 				<h3>&nbsp;</h3>
