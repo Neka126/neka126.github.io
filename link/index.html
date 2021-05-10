@@ -9,7 +9,7 @@
       if(neka.getUrlVars("ad")){
          setTimeout(function(){window.location.replace((neka.Linkz[neka.getUrlVars("id")].link||"https://neka126.github.io/link/error.html"))},10000)
        }else{
-         window.location.replace((neka.Linkz[neka.getUrlVars("id")]))
+         window.location.replace((neka.Linkz[neka.getUrlVars("id")].link))
        }
     }
     setTimeout(function(){i.innerHTML="10"},1000);
