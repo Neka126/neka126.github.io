@@ -33,7 +33,7 @@
     });
   </script>
 </head>
-<body>
+<body style="text-align:center">
     <div class="w3-bar w3-border w3-light-grey">
       <a href="/" class="w3-bar-item w3-button w3-blue">Home</a>
       <a href="/chat" class="w3-bar-item w3-button">Chat</a>
@@ -51,5 +51,6 @@
       </div>
 
     </div>
+  <button class="w3-button" onclick="firebase.auth().signOut();window.location.replace('https://neka126.github.io/')">Sign Out</button><br>---OR---<br>
   <div id="firebaseui-auth-container"></div>
 </body>
