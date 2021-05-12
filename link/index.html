@@ -7,7 +7,7 @@
   <script>
     if(neka.Linkz[neka.getUrlVars("id")]){
       if(neka.getUrlVars("ad")){
-         setTimeout(function(){window.location.replace((neka.Linkz[neka.getUrlVars("id")].link||window.location.replace((neka.Linkz[neka.getUrlVars("id")].LINK||"https://neka126.github.io/link/error.html"))},10000)
+         setTimeout(function(){window.location.replace((neka.Linkz[neka.getUrlVars("id")].link||neka.Linkz[neka.getUrlVars("id")].LINK||"https://neka126.github.io/link/error.html"))},10000)
        }else{
          window.location.replace((neka.Linkz[neka.getUrlVars("id")].link||window.location.replace((neka.Linkz[neka.getUrlVars("id")].LINK||"https://neka126.github.io/link/error.html"))
        }
