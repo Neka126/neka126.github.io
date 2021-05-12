@@ -3,13 +3,13 @@
   <script src="/NekaLinkz.js"></script>
 </head>
 <body>
-  Redirecting to link in <code id="i">0</code> seconds
+  Redirecting to link in <code id="i">10</code> seconds
   <script>
     if(neka.Linkz[neka.getUrlVars("id")]){
       if(neka.getUrlVars("ad")){
          setTimeout(function(){window.location.replace((neka.Linkz[neka.getUrlVars("id")].link||"https://neka126.github.io/link/error.html"))},10000)
        }else{
-         window.location.replace((neka.Linkz[neka.getUrlVars("id")].link))
+         window.location.replace((neka.Linkz[neka.getUrlVars("id")].LINK))
        }
     }
     setTimeout(function(){i.innerHTML="10"},1000);
