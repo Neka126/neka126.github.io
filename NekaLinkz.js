@@ -10,5 +10,9 @@ neka.Linkz={
   "LK-KCIR":{
     link:"https://dev-voice-226818.web.app/Rick.mp4",
     LINK:"https://dev-voice-226818.web.app/Rick.mp4"
+  },
+  "LK-126":{
+    link:"https://dev-voice-226818.web.app/",
+    LINK:"https://dev-voice-226818.web.app/"
   }
 }
