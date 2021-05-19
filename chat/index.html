@@ -476,8 +476,8 @@ f?(e._userId=a.toString(),e._userName=c.toString(),e._userRef=e._firechatRef.chi
     </div>
     <div>
       <hr>
-      <div class="right column scroll" style="height:500px" id="text">No Server Selected</div>
-      <div id="input" style="height:50px;background:grey"contenteditable="true"></div><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.innerHTML);refresh();">Send</button>
+      <div class="right column scroll" style="height:500px" id="text">No Server Selected</div><br>
+      <div class="w3-bar"><div id="input" style="height:50px;background:grey"contenteditable="true"></div><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.innerHTML);refresh();">Send</button></div>
     </div>
   </div>
 </div><br><button sp-show-form='187974'>Subscribe to email notifications</button>
@@ -686,9 +686,9 @@ if (event.target == modal) {
     if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
   },200);
 </script>
-  <div class="wdt-emoji-popup">
+  <div hidden class="wdt-emoji-popup">
   <a href="#" class="wdt-emoji-popup-mobile-closer"> × </a>
-  <div class="wdt-emoji-menu-content">
+  <div hidden class="wdt-emoji-menu-content">
     <div id="wdt-emoji-menu-header">
       <a class="wdt-emoji-tab active" data-group-name="Recent"></a>
       <a class="wdt-emoji-tab" data-group-name="People"></a>
@@ -701,7 +701,7 @@ if (event.target == modal) {
       <a class="wdt-emoji-tab" data-group-name="Flags"></a>
       <a class="wdt-emoji-tab" data-group-name="Custom"></a>
     </div>
-    <div class="wdt-emoji-scroll-wrapper">
+    <div hidden class="wdt-emoji-scroll-wrapper">
       <div id="wdt-emoji-menu-items">
         <input id="wdt-emoji-search" type="text" placeholder="Search">
         <h3 id="wdt-emoji-search-result-title">Search Results</h3>
@@ -709,7 +709,7 @@ if (event.target == modal) {
         <div id="wdt-emoji-no-result">No emoji found</div>
       </div>
     </div>
-    <div id="wdt-emoji-footer">
+    <div hidden id="wdt-emoji-footer">
       <div id="wdt-emoji-preview">
         <span id="wdt-emoji-preview-img"></span>
         <div id="wdt-emoji-preview-text">
