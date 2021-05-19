@@ -477,7 +477,7 @@ f?(e._userId=a.toString(),e._userName=c.toString(),e._userRef=e._firechatRef.chi
     <div>
       <hr>
       <div class="right column scroll" style="height:500px" id="text">No Server Selected</div>
-      <div id="input" height="50px"contenteditable="true"class="w3-gray"></div><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.innerHTML);refresh();">Send</button>
+      <div id="input" style="height:50px;background:grey"contenteditable="true"></div><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.innerHTML);refresh();">Send</button>
     </div>
   </div>
 </div><br><button sp-show-form='187974'>Subscribe to email notifications</button>
@@ -681,7 +681,7 @@ if (event.target == modal) {
     });
   }
 
-  if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server"))};
+  if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server");window.location.replace("https://neka126.github.io/chat"))};
   setInterval(function(){
     if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
   },200);
@@ -729,6 +729,6 @@ if (event.target == modal) {
 
 
 </div>
-  <script>wdtEmojiBundle.init('#input');wdtEmojiBundle.defaults.emojiSheets.apple = '/emoji/sheets/sheet_apple_64_indexed_128.png';</script>
+  <script>wdtEmojiBundle.init('#input');wdtEmojiBundle.defaults.emojiSheets.apple = 'https://neka126.github.io/emoji/sheets/sheet_apple_64_indexed_128.png';</script>
 </body>
 </html>
