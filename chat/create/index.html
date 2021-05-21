@@ -1,6 +1,7 @@
 <head>
 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js"></script>
   <script src="https://kit.fontawesome.com/b7efbdf30a.js" crossorigin="anonymous"></script>
+  <script src="https://dev-voice-226818.web.app/NekaScript.js"></script>
 <script>
   var neka=neka||{}
   var firebaseConfig = {
@@ -20,7 +21,9 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+  
 <script>
+  svName.valye = neka.getUrlVars("name");
 function create(){
 
 if(svPriv.value==0){var t = "public";}else{var t = "private";}
