@@ -22,7 +22,19 @@
 </head>
 <body>
   
-<script>
+
+<style>.fa-product-hunt{color:#ffff00;background-color:black;border-radius:100%;}.fa-life-ring{color:red;background-color:white;border-radius:100%;}</style>
+<input id="svName" placeholder="Server Name"> Server Color:<span title="NekaVid Premium or Supporter required"><input value="#ffffff"id="svColor" type="color" disabled>
+<i class="fas fa-life-ring"></i><i class="fab fa-product-hunt"></i></span><br>
+<input type="url" id="svImg"placeholder="Server Image (url to file)"><br>
+<hr>Public<input id="svPriv"type="range" min="0" max="2">Private<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approved Only<br>
+<b>Public:</b> Anyone can join and chat<br>
+<b>Approved Only:</b> Anyone can join but only approved members can chat<br>
+<b>Private:</b> Only approved members can join and chat<br>
+<hr>
+<button class="w3-button" onclick="create()">Create</button>
+  <script>
   svName.valye = neka.getUrlVars("name");
 function create(){
 
@@ -43,15 +55,4 @@ console.log(server);
 };
   document.write("Server ID: "+newPostKey);
 </script>
-<style>.fa-product-hunt{color:#ffff00;background-color:black;border-radius:100%;}.fa-life-ring{color:red;background-color:white;border-radius:100%;}</style>
-<input id="svName" placeholder="Server Name"> Server Color:<span title="NekaVid Premium or Supporter required"><input value="#ffffff"id="svColor" type="color" disabled>
-<i class="fas fa-life-ring"></i><i class="fab fa-product-hunt"></i></span><br>
-<input type="url" id="svImg"placeholder="Server Image (url to file)"><br>
-<hr>Public<input id="svPriv"type="range" min="0" max="2">Private<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approved Only<br>
-<b>Public:</b> Anyone can join and chat<br>
-<b>Approved Only:</b> Anyone can join but only approved members can chat<br>
-<b>Private:</b> Only approved members can join and chat<br>
-<hr>
-<button class="w3-button" onclick="create()">Create</button>
 </body>
