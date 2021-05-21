@@ -35,7 +35,7 @@
 <hr>
 <button class="w3-button" onclick="create()">Create</button>
   <script>
-  svName.valye = neka.getUrlVars("name");
+  svName.value = neka.getUrlVars("name");
 function create(){
 
 if(svPriv.value==0){var t = "public";}else{var t = "private";}
@@ -52,7 +52,8 @@ createdAt:new Date().getTime()
   updates['/chat/room-metadata/' + newPostKey] = server;
 firebase.database().ref().update(updates)
 console.log(server);
+    document.write("Server ID: "+newPostKey);
 };
-  document.write("Server ID: "+newPostKey);
+
 </script>
 </body>
