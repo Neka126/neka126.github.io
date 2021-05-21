@@ -668,7 +668,7 @@ if (event.target == modal) {
         userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+"<details><summary>"+users[i].name+'</summary>'+users[i].id+'</details><a target="_top"href="#" onclick="neka.Kiwi.user.invite('+neka.Kiwi.room.current+users[i].id+')"><i class="fas fa-plus"></i></a><a onclick="alert(`DMs are a WIP`)"href="#"target="_top"><i class="fas fa-comments"></i></a>'+"</button>";
       };
     });
-    firebase.database().ref("chat").get().then((snapshot) => {
+    firebase.database().ref("chat").limitToLast(100).get().then((snapshot) => {
       var data = Object.values(snapshot.val()["room-messages"][neka.Kiwi.room.current]);
       var users = snapshot.val().users;
       text.innerHTML="";
