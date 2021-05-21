@@ -32,7 +32,7 @@ image:svImg.value,
 createdByUserId:firebase.auth().currentUser.uid,
 createdAt:new Date().getTime()
 };
- var newPostKey = (Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500);
+ var newPostKey = Math.round((Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500));
   var updates = {};
   updates['/chat/room-metadata/' + newPostKey] = server;
 firebase.database().ref().update(updates)
