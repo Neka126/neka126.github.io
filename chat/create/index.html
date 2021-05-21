@@ -37,7 +37,8 @@ createdAt:new Date().getTime()
   updates['/chat/room-metadata/' + newPostKey] = server;
 firebase.database().ref().update(updates)
 console.log(server);
-}
+};
+  document.write("Server ID: "+newPostKey);
 </script>
 <style>.fa-product-hunt{color:#ffff00;background-color:black;border-radius:100%;}.fa-life-ring{color:red;background-color:white;border-radius:100%;}</style>
 <input id="svName" placeholder="Server Name"> Server Color:<span title="NekaVid Premium or Supporter required"><input value="#ffffff"id="svColor" type="color" disabled>
