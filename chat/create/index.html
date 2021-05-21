@@ -1,0 +1,52 @@
+<head>
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js"></script>
+<script>
+  var neka=neka||{}
+  var firebaseConfig = {
+    apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
+    authDomain: "dev-voice-226818.firebaseapp.com",
+    databaseURL: "https://dev-voice-226818.firebaseio.com",
+    projectId: "dev-voice-226818",
+    storageBucket: "dev-voice-226818.appspot.com",
+    messagingSenderId: "758189606771",
+    appId: "1:758189606771:web:8b255f5a5677c7b4dfe706",
+    measurementId: "G-YPTDPDMTB0"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<script>
+function create(){
+
+if(svPriv.value==0){var t = "public";}else{var t = "private";}
+var server = {
+name:svName.value,
+color:svColor.value,
+type:t,
+image:svImg.value,
+createdByUserId:firebase.auth().currentUser.uid,
+createdAt:new Date().getTime()
+};
+ var newPostKey = (Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500);
+  var updates = {};
+  updates['/chat/room-metadata/' + newPostKey] = server;
+firebase.database().ref().update(updates)
+console.log(server);
+}
+</script>
+<style>.fa-product-hunt{color:#ffff00;background-color:black;border-radius:100%;}.fa-life-ring{color:red;background-color:white;border-radius:100%;}</style>
+<input id="svName" placeholder="Server Name"> Server Color:<span title="NekaVid Premium or Supporter required"><input value="#ffffff"id="svColor" type="color" disabled>
+<i class="fas fa-life-ring"></i><i class="fab fa-product-hunt"></i></span><br>
+<input type="url" id="svImg"placeholder="Server Image (url to file)"><br>
+<hr>Public<input id="svPriv"type="range" min="0" max="2">Private<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approved Only<br>
+<b>Public:</b> Anyone can join and chat<br>
+<b>Approved Only:</b> Anyone can join but only approved members can chat<br>
+<b>Private:</b> Only approved members can join and chat<br>
+<hr>
+<button class="w3-button" onclick="create()">Create</button>
+</body>
