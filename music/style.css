@@ -1,4 +1,12 @@
-.bb{bottom:0px;left:0px}
+.bb {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
 
 .w3-theme-l5 {color:#000 !important; background-color:#fef5f2 !important}
 .w3-theme-l4 {color:#000 !important; background-color:#fcddd5 !important}
