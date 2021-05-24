@@ -331,7 +331,7 @@ if (event.target == modal) {
       var users = snapshot.val().users;
       text.innerHTML="";
       for(var i=0;i<data.length;i++){
-        text.innerHTML=text.innerHTML+"<button title='"+data[i].userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data[i].userId].image||"")+"'>"+data[i].name+"</b><br>"+data[i].message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data[i].timestamp).toDateString()+"</div></button><br>";
+        text.innerHTML=text.innerHTML+"<button title='"+data[i].userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data[i].userId].image||"")+"'>"+data[i].name+"</b><br>"+data[i].message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data[i].timestamp).toUTCString();+"</div></button><br>";
       };
     chatWindow = document.getElementById('text'); 
     var xH = chatWindow.scrollHeight; 
