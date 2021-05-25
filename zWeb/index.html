@@ -37,8 +37,8 @@ neka.zWeb={flash:{}};
 neka.zWeb.flash.load=function(file){neka.zWeb.flash.player.load(file)}
 window.RufflePlayer = window.RufflePlayer || {};
 window.addEventListener("DOMContentLoaded", () => {
-    neka.zWeb.flash.ruffle = window.RufflePlayer.newest();
-    neka.zWeb.flash.player = ruffle.createPlayer();
+    neka.zWeb.flash = window.RufflePlayer.newest();
+    neka.zWeb.flash.player = neka.zWeb.flash.createPlayer();
     neka.zWeb.flash.container = document.getElementById("Flash");
     neka.zWeb.flash.container.appendChild(neka.zWeb.flash.player);
     neka.zWeb.flash.load("")
