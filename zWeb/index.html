@@ -30,19 +30,19 @@ function openTab(tabName) {
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";  
   }
-  neka.zWeb={flash:{}};
-  neka.zWeb.flash.load=function(file){neka.zWeb.flash.player.load(file)}
-  window.RufflePlayer = window.RufflePlayer || {};
-  window.addEventListener("DOMContentLoaded", () => {
-      neka.zWeb.flash.ruffle = window.RufflePlayer.newest();
-      neka.zWeb.flash.player = ruffle.createPlayer();
-      neka.zWeb.flash.container = document.getElementById("Flash");
-      neka.zWeb.flash.container.appendChild(neka.zWeb.flash.player);
-      neka.zWeb.flash.load("")
-  });
   
   document.getElementById(tabName).style.display = "block";  
 }
+neka.zWeb={flash:{}};
+neka.zWeb.flash.load=function(file){neka.zWeb.flash.player.load(file)}
+window.RufflePlayer = window.RufflePlayer || {};
+window.addEventListener("DOMContentLoaded", () => {
+    neka.zWeb.flash.ruffle = window.RufflePlayer.newest();
+    neka.zWeb.flash.player = ruffle.createPlayer();
+    neka.zWeb.flash.container = document.getElementById("Flash");
+    neka.zWeb.flash.container.appendChild(neka.zWeb.flash.player);
+    neka.zWeb.flash.load("")
+});
 </script>
 <script src="/ruffle/ruffle.js"></script>
 </body>
