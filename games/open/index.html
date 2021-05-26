@@ -115,7 +115,7 @@
 	gd.innerHTML = q.description;
 	gt.innerHTML = q.tagcode;
 	gn.innerHTML = q.title;
-	gl.href = q.link;
+	gl.href = "/frame.html?title="+q.title+"&id="+i+"&link="+q.link;
 	gp.innerHTML = q.price;
 	gi.src = q.media.game;
 	$("#gb").css({"background-image": "url("+q.media.back+")"});
