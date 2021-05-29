@@ -109,6 +109,10 @@
       x.className = x.className.replace(" w3-show", "");
     }
   }
+  function pic(src){
+    document.getElementById('id01').style.display='block';
+    document.getElementById('img').src=src;
+  }
 </script>
 <script src="https://dev-voice-226818.web.app/NekaScript.js"></script>
 <script src="/NekaKiwi.js"></script>
@@ -241,6 +245,10 @@ display: table;
 <div id="id02" class="modal">
 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
 
+</div>
+  <div id="id03" class="modal">
+<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">×</span>
+<img src=""id="img">
 </div>
 <script>
 // Get the modal
