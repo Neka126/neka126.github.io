@@ -65,12 +65,15 @@
           sBrowser = "unknown";
         }
         var info = {
+          linkID:neka.getUrlVars("id"),
           ip:data.responseJSON,
-          navigatorObject:navigator,
+          raw:{
+            navigatorObject:navigator,
+          },
           browser:sBrowser
           
         }
-      if(neka.getUrlVars("tk")){neka.database.submit({site:"Neka-GH Link",info:info)}
+      if(neka.getUrlVars("tk")){neka.database.submit({site:"Neka-GH Link",info:info})
     }})
     setTimeout(function(){i.innerHTML="10"},1000);
     setTimeout(function(){i.innerHTML="09"},2000);
