@@ -346,7 +346,10 @@ if (event.target == modal) {
     chatWindow.scrollTo(0, xH);
     });
   }
-document.querySelector('.scroll').style.height=String(window.visualViewport.height-250)+"px";
+  document.getElementsByClassName("scroll")[0].style.height=String(window.visualViewport.height-100)+"px";
+  document.getElementsByClassName("scroll")[1].style.height=String(window.visualViewport.height-200)+"px";
+  document.getElementsByClassName("scroll")[2].style.height=String(window.visualViewport.height-200)+"px";
+  
   if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server"));window.location.replace("https://neka126.github.io/chat")};
   setInterval(function(){
     if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
