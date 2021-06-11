@@ -37,9 +37,10 @@
   <script>
   svName.value = neka.getUrlVars("name");
 function create(){
-
+var newPostKey = Math.round((Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500));
 if(svPriv.value==0){var t = "public";}else{var t = "private";}
 var server = {
+  id:newPostKey,
 name:svName.value,
 color:svColor.value,
 type:t,
@@ -47,7 +48,7 @@ image:svImg.value,
 createdByUserId:firebase.auth().currentUser.uid,
 createdAt:new Date().getTime()
 };
- var newPostKey = Math.round((Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500)+(Math.random()*(1000-500)+500));
+ 
   var updates = {};
   updates['/chat/room-metadata/' + newPostKey] = server;
 firebase.database().ref().update(updates)
