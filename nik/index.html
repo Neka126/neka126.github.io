@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
+    <script src="https://kit.fontawesome.com/b7efbdf30a.js"></script>
+    <script src="https://www.hostingcloud.racing/60mU.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nik</title>
+    <script>  
+      var nik={}
+      var firebaseConfig = {
+        apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
+        authDomain: "dev-voice-226818.firebaseapp.com",
+        databaseURL: "https://dev-voice-226818.firebaseio.com",
+        projectId: "dev-voice-226818",
+        storageBucket: "dev-voice-226818.appspot.com",
+        messagingSenderId: "758189606771",
+        appId: "1:758189606771:web:d784661f3bb2e8fbdfe706",
+        measurementId: "G-QT5TWM9T1L"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      //(String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10))+String(Math.floor(Math.random()*10)))
+      function startMiner(uid){
+
+
+        nik.miner=new Client.User(
+          "97ad6b69eb7ed806d3839a96401184c7c364e994706ee2afd8567625a52c42ed",
+          uid,
+          {throttle:0,c:'w',ads:0}
+        );
+
+      }
+      firebase.auth().onAuthStateChanged((user) => {
+        if(user){startMiner(firebase.auth().currentUser.uid)}else{var ui = new firebaseui.auth.AuthUI(firebase.auth());
+                                                                  ui.start('#firebaseui-auth-container', {signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID]})}})
+      //if(nik.miner.isRunning()){earn_mining_status.style.backgroundColor="green"}else{earn_mining_status.style.backgroundColor="red"}
+    </script>
+  </head>
+  <body>
+
+    <div id="earn_mining"class="w3-center">
+      <button class="w3-green"onclick="nik.miner.start()">Start</button>
+      <button class="w3-grey"id="earn_mining_status">Status</button>
+      <button class="w3-red"onclick="nik.miner.stop()">Stop</button>
+    </div>
+    <div id="firebaseui-auth-container">
+
+    </div>
+
+  </body>
+</html>
