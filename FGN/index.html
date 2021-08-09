@@ -27,27 +27,40 @@
       firebase.database().ref('userData/'+user.uid+"/username").set(a);
       firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
     }
-    function action(a){
+    function action(a,v){
       console.log('bee')
       if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
       firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/RollerCoin").get().then((snapshot) => {
         if (snapshot.exists()) {
           alert("Offer Already Completed")
         } else {
-          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").set({time:new Date(),site:a,});
+          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").set({time:new Date(),site:a,value:v});
+          var uid = firebase.auth().currentUser.uid;
+          updates["userData/"+uid+"/wallet/niKoin"] = firebase.database.ServerValue.increment(v);
+          firebase.database().ref().update(updates);
           window.open(a)
         }
       })
       
     }
     firebase.auth().onAuthStateChanged((user) => {if(user){var uid=user.uid;yee.value=user.displayName||"";}});
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+      firebase.database().ref("userData/"+firebase.auth().currentUser.uid+"/wallet/niKoin").on('value', (snapshot) => {
+      var uid = firebase.auth().currentUser.uid;
+      const data = snapshot.val();
+      palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
+      if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
+    })}});
   </script>
 </head>
 <body>
   Sign in with <button onclick="firebase.auth().signInWithPopup(provider)">Google</button> to complete offers<br>
   <input placeholder="Username"id="yee"><button onclick="save(yee.value)">Save</button><br>
   Please use the same Username for all offers<br>
+  <button id="palance"></button><br>
+  Withdraw at <a href="https://nik.nekavid.club/exchange/">nik</a><br>
   <div style="text-align:center">
-    <button onclick="action('https://rollercoin.com/?r=kig6a25o')">RollerCoin</button>
+    <button onclick="action('https://rollercoin.com/?r=kig6a25o',100)">RollerCoin</button>
   </div>
 </body>
