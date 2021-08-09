@@ -30,10 +30,15 @@
     function action(a){
       console.log('bee')
       if(firebase.auth().currentUser){var user = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
-      var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
-      var newPostRef = postListRef.push();
-      newPostRef.set({time:new Date(),site:a,});
-      window.open(a)
+      firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").get().then((snapshot) => {
+        if (snapshot.exists()) {
+          alert("Offer Already Completed")
+        } else {
+          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").set({time:new Date(),site:a,});
+          window.open(a)
+        }
+      })
+      
     }
     firebase.auth().onAuthStateChanged((user) => {if(user){var uid=user.uid;yee.value=user.displayName||"";}});
   </script>
