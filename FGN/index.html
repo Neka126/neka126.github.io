@@ -18,9 +18,6 @@
 
 <script>
   var provider = new firebase.auth.GoogleAuthProvider();
-  function signin(){
-    firebase.auth().signInWithPopup(provider)
-  }
   function save(a){
     if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
     const user = firebase.auth().currentUser;
@@ -44,7 +41,7 @@
   }
 });
 </script>
-Sign in with <button onclick="signin()">Google</button> to complete offers<br>
+Sign in with <button onclick="firebase.auth().signInWithPopup(provider)">Google</button> to complete offers<br>
 <input placeholder="Username"id="yee"><button onclick="save(yee.value)">Save</button><br>
 Please use the same Username for all offers<br>
 <div style="text-align:center">
