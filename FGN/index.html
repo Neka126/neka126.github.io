@@ -58,15 +58,16 @@
     firebase.auth().onAuthStateChanged((user) => {if(user){var uid=user.uid;yee.value=user.displayName||"";}});
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
-        firebase.database().ref("userData/"+firebase.auth().currentUser.uid+"/wallet/niKoin").on('value', (snapshot) => {
-        var uid = firebase.auth().currentUser.uid;
-        const data = snapshot.val();
+          firebase.database().ref("userData/"+firebase.auth().currentUser.uid+"/wallet/niKoin").on('value', (snapshot) => {
+          var uid = firebase.auth().currentUser.uid;
+          const data = snapshot.val();
           suid.innerHTML=uid
-        palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
-        if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
-        offercheck("RollerCoin")
+          palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
+          if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
+          offercheck("RollerCoin");
+          offercheck("FaucetCrypto");
     })}});
-    offerTime.innerHTML=new Date("08/13/2021").getDate()-new Date().getDate()
+    window.onload=function(){offerTime.innerHTML=new Date("08/13/2021").getDate()-new Date().getDate()}
   </script>
 </head>
 <body>
@@ -77,8 +78,8 @@
   Withdraw at <a href="https://nik.nekavid.club/exchange/">nik</a><br>
   <div style="text-align:center">
     All rewards will be multiplied by 12 on <b>Friday the 13th</b> or in <b id="offerTime"></b> days!<br>
-    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin 100 niKoin</b></button>
-    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin 250 niKoin</b></button>
+    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100,true)">RollerCoin 100 niKoin</b></button><br>
+    <button id="FaucetCrypto"onclick="action('FaucetCrypto','https://faucetcrypto.com/ref/632300',250,true)">FaucetCrypto 250 niKoin</b></button><br>
   </div>
 if you need to submit proof email <a href="mailto:frostyanimations126@gmail.com">frostyanimations126@gmail.com</a> with your UID (<span id='suid'></span>), the offer name, and proof 
 </body>
