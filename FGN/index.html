@@ -29,7 +29,7 @@
     }
     function action(a){
       console.log('bee')
-      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
+      if(firebase.auth().currentUser){var user = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
       var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
       var newPostRef = postListRef.push();
       newPostRef.set({time:new Date(),site:a,});
