@@ -1,49 +1,53 @@
-<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase.js"></script>
+<head>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase.js"></script>
 
-<script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
-    authDomain: "dev-voice-226818.firebaseapp.com",
-    databaseURL: "https://dev-voice-226818.firebaseio.com",
-    projectId: "dev-voice-226818",
-    storageBucket: "dev-voice-226818.appspot.com",
-    messagingSenderId: "758189606771",
-    appId: "1:758189606771:web:cd4a6f9122a5163fdfe706",
-    measurementId: "G-KXWTP1HXQ4"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCGuBfj3Op2I37aPjGJeltOFiBjd7TfJAo",
+      authDomain: "dev-voice-226818.firebaseapp.com",
+      databaseURL: "https://dev-voice-226818.firebaseio.com",
+      projectId: "dev-voice-226818",
+      storageBucket: "dev-voice-226818.appspot.com",
+      messagingSenderId: "758189606771",
+      appId: "1:758189606771:web:cd4a6f9122a5163fdfe706",
+      measurementId: "G-KXWTP1HXQ4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 
-<script>
-  var provider = new firebase.auth.GoogleAuthProvider();
-  function save(a){
-    if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
-    const user = firebase.auth().currentUser;
-    user.updateProfile({displayName:a})
-    firebase.database().ref('userData/'+user.uid+"/username").set(a);
-    firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
-  }
-  function open(a){
-    if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
-    var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
-    var newPostRef = postListRef.push();
-    newPostRef.set({time:new Date(),site:a,});
-    window.open(a)
-  }
-  firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    var uid = user.uid;
-    yee.value=user.displayName||"";
-  } else {
-    
-  }
-});
-</script>
-Sign in with <button onclick="firebase.auth().signInWithPopup(provider)">Google</button> to complete offers<br>
-<input placeholder="Username"id="yee"><button onclick="save(yee.value)">Save</button><br>
-Please use the same Username for all offers<br>
-<div style="text-align:center">
-  <button onclick="open('https://rollercoin.com/?r=kig6a25o')">RollerCoin</button>
-</div>
+  <script>
+    var provider = new firebase.auth.GoogleAuthProvider();
+    function save(a){
+      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
+      const user = firebase.auth().currentUser;
+      user.updateProfile({displayName:a})
+      firebase.database().ref('userData/'+user.uid+"/username").set(a);
+      firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
+    }
+    function open(a){
+      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
+      var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
+      var newPostRef = postListRef.push();
+      newPostRef.set({time:new Date(),site:a,});
+      window.open(a)
+    }
+    firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var uid = user.uid;
+      yee.value=user.displayName||"";
+    } else {
+
+    }
+  });
+  </script>
+</head>
+<body>
+  Sign in with <button onclick="firebase.auth().signInWithPopup(provider)">Google</button> to complete offers<br>
+  <input placeholder="Username"id="yee"><button onclick="save(yee.value)">Save</button><br>
+  Please use the same Username for all offers<br>
+  <div style="text-align:center">
+    <button onclick="open('https://rollercoin.com/?r=kig6a25o')">RollerCoin</button>
+  </div>
+</body>
