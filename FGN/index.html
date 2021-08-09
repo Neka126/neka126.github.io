@@ -27,22 +27,23 @@
       firebase.database().ref('userData/'+user.uid+"/username").set(a);
       firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
     }
-    function action(g,a,v){
+    function action(g,a,v,c){
       console.log('bee')
       if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
       firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/"+g).get().then((snapshot) => {
         if (snapshot.exists()) {
           alert("Offer Already Completed")
         } else {
-          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/"+g).set({time:new Date(),site:a,value:v});
+          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/"+g).set({time:new Date(),site:a,value:v,status:"pending"});
+          if(!c){
           var updates = {}
           var uid = firebase.auth().currentUser.uid;
           updates["userData/"+uid+"/wallet/niKoin"] = firebase.database.ServerValue.increment(v);
           firebase.database().ref().update(updates);
-          window.open(a)
+          }
+          if(confirm("You will not be rewarded until it has been confirmed or you have submitted proof")){window.open(a)}
         }
       })
-      
     }
     function offercheck(g){
       console.log('cee')
@@ -57,13 +58,15 @@
     firebase.auth().onAuthStateChanged((user) => {if(user){var uid=user.uid;yee.value=user.displayName||"";}});
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
-      firebase.database().ref("userData/"+firebase.auth().currentUser.uid+"/wallet/niKoin").on('value', (snapshot) => {
-      var uid = firebase.auth().currentUser.uid;
-      const data = snapshot.val();
-      palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
-      if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
+        firebase.database().ref("userData/"+firebase.auth().currentUser.uid+"/wallet/niKoin").on('value', (snapshot) => {
+        var uid = firebase.auth().currentUser.uid;
+        const data = snapshot.val();
+          suid.innerHTML=uid
+        palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
+        if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
+        offercheck("RollerCoin")
     })}});
-    offercheck("RollerCoin")
+    offerTime.innerHTML=new Date("08/13/2021").getDate()-new Date().getDate()
   </script>
 </head>
 <body>
@@ -73,7 +76,9 @@
   <button id="palance"></button><br>
   Withdraw at <a href="https://nik.nekavid.club/exchange/">nik</a><br>
   <div style="text-align:center">
-    All offer rewards doubled for a limited time only! <span id="offerTime"></span>
-    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin <b><del>100</del> 200 niKoin</b></button>
+    All rewards will be multiplied by 12 on <b>Friday the 13th</b> or in <b id="offerTime"></b> days!<br>
+    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin 100 niKoin</b></button>
+    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin 250 niKoin</b></button>
   </div>
+if you need to submit proof email <a href="mailto:frostyanimations126@gmail.com">frostyanimations126@gmail.com</a> with your UID (<span id='suid'></span>), the offer name, and proof 
 </body>
