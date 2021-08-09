@@ -21,7 +21,7 @@
     var provider = new firebase.auth.GoogleAuthProvider();
     function save(a){
       console.log('ahh')
-      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
+      if(firebase.auth().currentUser){var u = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
       const user = firebase.auth().currentUser;
       user.updateProfile({displayName:a})
       firebase.database().ref('userData/'+user.uid+"/username").set(a);
@@ -29,7 +29,7 @@
     }
     function action(a){
       console.log('bee')
-      if(firebase.auth().currentUser){var user = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
+      if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
       firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").get().then((snapshot) => {
         if (snapshot.exists()) {
           alert("Offer Already Completed")
