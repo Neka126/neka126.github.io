@@ -30,7 +30,7 @@
     function action(a){
       console.log('bee')
       if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
-      firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").get().then((snapshot) => {
+      firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/RollerCoin").get().then((snapshot) => {
         if (snapshot.exists()) {
           alert("Offer Already Completed")
         } else {
