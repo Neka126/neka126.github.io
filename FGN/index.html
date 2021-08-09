@@ -27,19 +27,29 @@
       firebase.database().ref('userData/'+user.uid+"/username").set(a);
       firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
     }
-    function action(a,v){
+    function action(g,a,v){
       console.log('bee')
       if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{alert('pls sign in ok?');return}
-      firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/RollerCoin").get().then((snapshot) => {
+      firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/"+g).get().then((snapshot) => {
         if (snapshot.exists()) {
           alert("Offer Already Completed")
         } else {
-          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").set({time:new Date(),site:a,value:v});
+          firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/"+g).set({time:new Date(),site:a,value:v});
           var updates = {}
           var uid = firebase.auth().currentUser.uid;
           updates["userData/"+uid+"/wallet/niKoin"] = firebase.database.ServerValue.increment(v);
           firebase.database().ref().update(updates);
           window.open(a)
+        }
+      })
+      
+    }
+    function offercheck(g){
+      console.log('cee')
+      if(firebase.auth().currentUser){var user = firebase.auth().currentUser}else{return}
+      firebase.database().ref('NekaEarn/users/'+firebase.auth().currentUser.uid+"/actions/"+g).get().then((snapshot) => {
+        if (snapshot.exists()) {
+          document.getElementById(g).hidden=true
         }
       })
       
@@ -53,6 +63,7 @@
       palance.innerHTML = (Math.round(data*100000000)/100000000||0)+" niKoin";
       if(data==null){firebase.database().ref("userData/"+uid+"/wallet/niKoin").set(0)}
     })}});
+    offercheck("RollerCoin")
   </script>
 </head>
 <body>
@@ -62,6 +73,7 @@
   <button id="palance"></button><br>
   Withdraw at <a href="https://nik.nekavid.club/exchange/">nik</a><br>
   <div style="text-align:center">
-    <button onclick="action('https://rollercoin.com/?r=kig6a25o',100)">RollerCoin</button>
+    All offer rewards doubled for a limited time only! <span id="offerTime"></span>
+    <button id="RollerCoin"onclick="action('RollerCoin','https://rollercoin.com/?r=kig6a25o',100)">RollerCoin <b><del>100</del> 200 niKoin</b></button>
   </div>
 </body>
