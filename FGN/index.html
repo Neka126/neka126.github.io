@@ -35,6 +35,7 @@
           alert("Offer Already Completed")
         } else {
           firebase.database().ref('NekaEarn/users/'+user.uid+"/actions/RollerCoin").set({time:new Date(),site:a,value:v});
+          var updates = {}
           var uid = firebase.auth().currentUser.uid;
           updates["userData/"+uid+"/wallet/niKoin"] = firebase.database.ServerValue.increment(v);
           firebase.database().ref().update(updates);
