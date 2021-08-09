@@ -21,28 +21,21 @@
     var provider = new firebase.auth.GoogleAuthProvider();
     function save(a){
       console.log('ahh')
-      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
+      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
       const user = firebase.auth().currentUser;
       user.updateProfile({displayName:a})
       firebase.database().ref('userData/'+user.uid+"/username").set(a);
       firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
     }
-    function open(a){
+    function action(a){
       console.log('bee')
-      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
+      if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{alert('pls sign in ok?');return}
       var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
       var newPostRef = postListRef.push();
       newPostRef.set({time:new Date(),site:a,});
       window.open(a)
     }
-    firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      var uid = user.uid;
-      yee.value=user.displayName||"";
-    } else {
-
-    }
-  });
+    firebase.auth().onAuthStateChanged((user) => {if(user){var uid=user.uid;yee.value=user.displayName||"";}});
   </script>
 </head>
 <body>
@@ -50,6 +43,6 @@
   <input placeholder="Username"id="yee"><button onclick="save(yee.value)">Save</button><br>
   Please use the same Username for all offers<br>
   <div style="text-align:center">
-    <button onclick="open('https://rollercoin.com/?r=kig6a25o')">RollerCoin</button>
+    <button onclick="action('https://rollercoin.com/?r=kig6a25o')">RollerCoin</button>
   </div>
 </body>
