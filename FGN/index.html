@@ -20,6 +20,7 @@
   <script>
     var provider = new firebase.auth.GoogleAuthProvider();
     function save(a){
+      console.log('ahh')
       if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
       const user = firebase.auth().currentUser;
       user.updateProfile({displayName:a})
@@ -27,6 +28,7 @@
       firebase.database().ref('chat/users/'+user.uid+"/name").set(a);
     }
     function open(a){
+      console.log('bee')
       if(firebase.auth().currentUser){var u = firebase.auth().currentUser.uid}else{return alert('pls sign in ok?')}
       var postListRef = firebase.database().ref('NekaEarn/users/'+user.uid+"/actions");
       var newPostRef = postListRef.push();
