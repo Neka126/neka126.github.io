@@ -334,13 +334,11 @@ if (event.target == modal) {
         userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+"<details><summary>"+users[i].name+'</summary>'+users[i].id+'</details><a target="_top"href="#" onclick="neka.Kiwi.user.invite('+neka.Kiwi.room.current+users[i].id+')"><i class="fas fa-plus"></i></a><a onclick="alert(`DMs are a WIP`)"href="#"target="_top"><i class="fas fa-comments"></i></a>'+"</button>";
       };
     });
-    firebase.database().ref("chat").limitToLast(50).get().then((snapshot) => {
-      var data = Object.values(snapshot.val()["room-messages"][neka.Kiwi.room.current]);
-      var users = snapshot.val().users;
+    firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).on('child_added', (data) => {
+      var data = Object.values(data);
       text.innerHTML="";
-      for(var i=0;i<data.length;i++){
-        text.innerHTML=text.innerHTML+"<button title='"+data[i].userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data[i].userId].image||"")+"'>"+data[i].name+"</b><br>"+data[i].message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data[i].timestamp).toUTCString();+"</div></button><br>";
-      };
+      text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data.userId].image||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
+      
     chatWindow = document.getElementById('text'); 
     var xH = chatWindow.scrollHeight; 
     chatWindow.scrollTo(0, xH);
