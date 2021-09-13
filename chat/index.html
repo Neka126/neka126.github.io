@@ -287,6 +287,7 @@ if (event.target == modal) {
     chatWindow = document.getElementById('text'); 
     var xH = chatWindow.scrollHeight; 
     chatWindow.scrollTo(0, xH);
+    text.innerHTML="";
     refresh(id);
   }
   function home(){
@@ -340,7 +341,7 @@ if (event.target == modal) {
       var fg=""
       data=data.val()
       console.log(data)
-      text.innerHTML="";
+      
       text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(fg||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
       
     chatWindow = document.getElementById('text'); 
