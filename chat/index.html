@@ -325,9 +325,9 @@ if (event.target == modal) {
 
   }
   function refresh(id){
-    id = id||neka.Kiwi.room.current;
+    id = id||neka.Kiwi.room.current;var users;
     neka.Kiwi.room.users(id,100,function(info){
-      var users=Object.values(info);
+      users=Object.values(info);
       userlist.innerHTML="";
       for(var i=0;i<users.length;i++){
         usercount.innerHTML=users.length
