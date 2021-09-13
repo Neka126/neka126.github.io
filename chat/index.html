@@ -337,8 +337,8 @@ if (event.target == modal) {
     });
     firebase.database().ref("chat/room-messages/").off()
     firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).on('child_added', (data) => {
-      if(users[data.userId]){var fg=users[data.userId].image}else{var fg=""}
-      var data = Object.values(data);
+      var fg=""
+      console.log(data)
       text.innerHTML="";
       text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(fg||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
       
