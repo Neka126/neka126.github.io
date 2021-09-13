@@ -324,8 +324,9 @@ if (event.target == modal) {
     text.innerHTML += "<button onclick='localStorage.serverlist=undefined'>Clear Server List</button>";
 
   }
+  var users;
   function refresh(id){
-    id = id||neka.Kiwi.room.current;var users;
+    id = id||neka.Kiwi.room.current;
     neka.Kiwi.room.users(id,100,function(info){
       users=Object.values(info);
       userlist.innerHTML="";
@@ -336,9 +337,10 @@ if (event.target == modal) {
     });
     firebase.database().ref("chat/room-messages/").off()
     firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).on('child_added', (data) => {
+      if(users[data.userId]){var fg=users[data.userId].image}else{var fg=""}
       var data = Object.values(data);
       text.innerHTML="";
-      text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(users[data.userId].image||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
+      text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(fg||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
       
     chatWindow = document.getElementById('text'); 
     var xH = chatWindow.scrollHeight; 
@@ -350,9 +352,9 @@ if (event.target == modal) {
   document.getElementsByClassName("scroll")[2].style.height=String(window.visualViewport.height-200)+"px";
   
   if(neka.getUrlVars("server")){joinServer(neka.getUrlVars("server"));window.location.replace("https://neka126.github.io/chat")};
-  setInterval(function(){
+  /*setInterval(function(){
     if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
-  },200);
+  },200);*/
   chat.on("message-add", refresh);
 </script>
   <div hidden class="wdt-emoji-popup">
