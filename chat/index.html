@@ -338,7 +338,7 @@ if (event.target == modal) {
     });
     firebase.database().ref("chat/room-messages/").off()
       text.innerHTML="";
-    firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).limitToFirst(50).on('child_added',async function(){
+    firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).limitToFirst(50).on('child_added',async function(data){
       data=data.val()
       var name=await firebase.database().ref("userData/"+data.userId+"/username").get();name=name.val()
       var fg//=(await firebase.database().ref("userData/"+data.userId+"/").get()).val();fg=fg.val()
