@@ -337,6 +337,7 @@ if (event.target == modal) {
       };
     });
     firebase.database().ref("chat/room-messages/").off()
+      text.innerHTML="";
     firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).limitToFirst(50).on('child_added', (data) => {
       data=data.val()
       var name=(await database.ref("userData/"+data.userId+"/username").get()).val()
