@@ -337,10 +337,11 @@ if (event.target == modal) {
       };
     });
     firebase.database().ref("chat/room-messages/").off()
-    firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).on('child_added', (data) => {
-      var fg=""
+    firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).limitToFirst(50).on('child_added', (data) => {
       data=data.val()
-      text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(fg||"")+"'>"+data.name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
+      var name=(await database.ref("userData/"+data.userId+"/username").get()).val()
+      var fg//=(await database.ref("userData/"+data.userId+"/").get()).val()
+      text.innerHTML=text.innerHTML+"<button title='"+data.userId+"' class='message'><b>"+"<img class='userImage'src='"+(fg||"https://firebasestorage.googleapis.com/v0/b/dev-voice-226818.appspot.com/o/Pictures%2FK526-363.png?alt=media&token=9e0587ee-f3cc-47b5-9dd5-9efc89190d4a")+"'>"+name+"</b><br>"+data.message+"<br><div class='codespan'style='font-size:10px'>"+new Date(data.timestamp).toUTCString();+"</div></button><br>";
       
     chatWindow = document.getElementById('text'); 
     var xH = chatWindow.scrollHeight; 
