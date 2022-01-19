@@ -138,7 +138,7 @@
     </div>
     <div class="w3-rest">
       <hr>
-      <div class="right column scroll" style="height:90%px" id="text">No Server Selected</div><br>
+      <div class="right column scroll" style="height:90%" id="text">No Server Selected</div><br>
       <div class="w3-bar"><div id="input" style="height:10%px;background:grey"contenteditable="true"></div><button onclick="neka.Kiwi.message.send(neka.Kiwi.room.current,input.innerHTML);refresh();">Send</button></div>
     </div>
   </div>
@@ -262,6 +262,7 @@ if (event.target == modal) {
 }
 </script>
 <script>
+  setInterval(function(){list.style.height=window.innerHeight-41+"px";text.style.height=window.innerHeight-140+"px";userlist.style.height=window.innerHeight-208+"px";},1000)
   if(localStorage.serverlist!="undefined"&&localStorage.serverlist!=undefined&&localStorage.serverlist!="null"){list.innerHTML=localStorage.serverlist};
   function addServer(image,id){
     neka.Kiwi.room.enter(id);
