@@ -328,7 +328,10 @@ if (event.target == modal) {
   }
   var users;
   function refresh(id){
+    console.log("refreshing "+id)
     id = id||neka.Kiwi.room.current;
+    firebase.database().ref("chat/room-messages/").off()
+    text.innerHTML="";
     neka.Kiwi.room.users(id,100,function(info){
       users=Object.values(info);
       userlist.innerHTML="";
@@ -336,8 +339,6 @@ if (event.target == modal) {
         usercount.innerHTML=users.length
         userlist.innerHTML=userlist.innerHTML+"<button class='user'>"+"<details><summary>"+users[i].name+'</summary>'+users[i].id+'</details><a target="_top"href="#" onclick="neka.Kiwi.user.invite('+neka.Kiwi.room.current+users[i].id+')"><i class="fas fa-plus"></i></a><a onclick="alert(`DMs are a WIP`)"href="#"target="_top"><i class="fas fa-comments"></i></a>'+"</button>";
       }
-      firebase.database().ref("chat/room-messages/").off()
-      text.innerHTML="";
       firebase.database().ref("chat/room-messages/"+neka.Kiwi.room.current).limitToFirst(50).on('child_added',function(data){
         data=data.val()
         firebase.database().ref("userData/"+data.userId+"/username").get().then(function(name){name=name.val()
@@ -358,7 +359,7 @@ if (event.target == modal) {
   /*setInterval(function(){
     if(document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")){document.getElementsByClassName("_hj-cp7UI__HotjarBranding__hotjarBranding")[0].remove();}
   },200);*/
-  chat.on("message-add", refresh);
+  //chat.on("message-add", refresh);
 </script>
   <div hidden class="wdt-emoji-popup">
   <a href="#" class="wdt-emoji-popup-mobile-closer"> × </a>
